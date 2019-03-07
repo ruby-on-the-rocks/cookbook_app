@@ -1,6 +1,14 @@
 class Api::RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
+
+    title_search = params[:title]
+    if title_search
+      @recipes = @recipes.where("title ILIKE ?", "%#{title_search}%")
+    end
+
+    @recipes = @recipes.order(:id => :asc)
+
     render "index.json.jbuilder"
   end
 
