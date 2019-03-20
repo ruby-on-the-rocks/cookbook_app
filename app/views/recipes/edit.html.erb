@@ -1,0 +1,30 @@
+<h1>Edit Recipe</h1>
+<form action="/recipes/<%= @recipe.id %>" method="patch">
+  <div>
+    Title: <input type="text" name="title" value="<%= @recipe.title %>" />
+  </div>
+  <div>
+    Chef: <input type="text" name="chef" value="<%= @recipe.chef %>" />
+  </div>
+  <div>
+    Prep Time: <input type="text" name="prep_time" value="<%= @recipe.prep_time %>" />
+  </div>
+  <div>
+    Ingredients: <input type="text" name="ingredients" value="<%= @recipe.ingredients %>" />
+  </div>
+  <div>
+    Directions: <input type="text" name="directions" value="<%= @recipe.directions %>" />
+  </div>
+  <div>
+    Image URL: <input type="text" name="image_url" value="<%= @recipe.image_url %>" />
+  </div>
+  <div>
+    Choose a user:
+    <select name="user_id">
+      <% @users.each do |user| %>
+        <option value="<%= user.id %>"><%= user.name %></option>
+      <% end %>
+    </select>
+  </div>
+  <input type="submit" name="" value="Update Recipe" />
+</form>
