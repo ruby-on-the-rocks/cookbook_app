@@ -5,6 +5,7 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @users = User.all
     render "new.html.erb"
   end
 
@@ -16,7 +17,7 @@ class RecipesController < ApplicationController
       ingredients: params[:ingredients],
       directions: params[:directions],
       image_url: params[:image_url],
-      user_id: 1
+      user_id: params[:user_id]
     )
     @recipe.save
     redirect_to "/recipes/#{@recipe.id}"
