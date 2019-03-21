@@ -3,3 +3,5 @@
 <h5><%= @recipe.ingredients %></h5>
 <h5><%= @recipe.directions %></h5>
 <a href="/recipes">Back to all recipes</a>
+<a href="/recipes/<%= @recipe.id %>/edit">Edit recipe</a>
+<a href="/recipes/<%= @recipe.id %>" data-method="delete" rel="nofollow">Delete recipe</a>
