@@ -2,3 +2,8 @@ body {
   font-family: Futura,"Trebuchet MS",Arial,sans-serif;
   background-image: url('retina_wood.png');
 }
+
+.title {
+  font-family: 'Lobster', cursive;
+  font-size: 8em;
+}
