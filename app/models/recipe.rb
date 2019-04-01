@@ -18,6 +18,7 @@ class Recipe < ApplicationRecord
   end
 
   def friendly_prep_time
+    return unless prep_time
     hours = prep_time / 60
     minutes = prep_time % 60
     result = ""
