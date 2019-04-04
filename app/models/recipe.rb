@@ -1,5 +1,8 @@
 class Recipe < ApplicationRecord
   belongs_to :user
+  validates :title, presence: true
+  validates :chef, presence: true
+  validates :ingredients, presence: true
 
   def ingredients_list
     result = []
