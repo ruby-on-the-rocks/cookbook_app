@@ -1,4 +1,6 @@
 class Api::RecipesController < ApplicationController
+  before_action :authenticate_user
+
   def index
     @recipes = Recipe.all
 
@@ -19,12 +21,12 @@ class Api::RecipesController < ApplicationController
       ingredients: params[:body_ingredients],
       directions: params[:body_directions],
       prep_time: params[:body_prep_time],
-      user_id: current_user.id
+      user_id: current_user.id,
     )
     if @recipe.save
       render "show.json.jbuilder"
     else
-      render json: {errors: @recipe.errors.full_messages}, status: 422
+      render json: { errors: @recipe.errors.full_messages }, status: 422
     end
   end
 
@@ -46,6 +48,6 @@ class Api::RecipesController < ApplicationController
   def destroy
     @recipe = Recipe.find_by(id: params[:id])
     @recipe.destroy
-    render json: {message: "Recipe successfully destroyed!"}
+    render json: { message: "Recipe successfully destroyed!" }
   end
 end
